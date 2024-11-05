@@ -40,7 +40,7 @@ async def fetch_tr_elements(url, xpath):
                 'date_display': date_display,
                 'date_str': date_str,
                 'title': title,
-                'title_link': r"https://www.shmtu.edu.cn/" + title_link,
+                'title_link': r"https://www.shmtu.edu.cn" + title_link,
                 'department': department
             })
 
@@ -73,11 +73,13 @@ def handle_url(url):
 def main(page_count=20):
     url_list = []
 
+    base_url = r"https://www.shmtu.edu.cn/events"
+
     for i in range(page_count):
         if i == 0:
-            url = f"https://www.shmtu.edu.cn/events"
+            url = base_url
         else:
-            url = f"https://www.shmtu.edu.cn/events?page={i}"
+            url = f"{base_url}?page={i}"
 
         url_list.append(url)
 
